@@ -1,6 +1,6 @@
 """API response wrapper models."""
 
-from typing import Generic, TypeVar
+from typing import Generic, TypeVar, Any
 from pydantic import BaseModel, Field
 from .chapters import ChapterListItem
 from .images import ImageListItem
@@ -27,7 +27,7 @@ class ErrorDetail(BaseModel):
     """Error details in API responses."""
     code: str | None = None
     message: str
-    details: dict[str, any] | None = None
+    details: dict[str, Any] | None = None
 
 
 class ValidationError(BaseModel):
