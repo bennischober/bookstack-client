@@ -3,6 +3,7 @@
 import httpx
 from typing import Any
 from .exceptions import create_api_error, create_connection_error
+from .resources import AuditLogResource
 
 
 class BookStackClient:
@@ -50,6 +51,8 @@ class BookStackClient:
             verify=verify_ssl,
             **client_kwargs,
         )
+
+        self.audit_log = AuditLogResource(self)
 
     def __enter__(self) -> "BookStackClient":
         return self
@@ -129,7 +132,7 @@ class BookStackClient:
 
             response = self._client.request(method, paginated_url, **kwargs)
             response.raise_for_status()
-            data = response.json()
+            data: dict = response.json()
 
             page_items = data.get('data', [])
             items.extend(page_items)
