@@ -114,7 +114,6 @@ from .permissions import (
 # Audit log models
 from .audit_log import (
     AuditLogItem,
-    AuditLogUser,
 )
 
 # Response models
@@ -225,7 +224,6 @@ __all__ = [
 
     # Audit Log
     "AuditLogItem",
-    "AuditLogUser",
 
     # Responses
     "PaginatedResponse",
