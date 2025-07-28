@@ -1,3 +1,8 @@
+# Bookstack
+bookstack_app_data/
+bookstack_db_data/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
